@@ -1,0 +1,101 @@
+body {
+  background-image: url('./images/Pillars-dark.jpg');
+  background-size: cover;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+.slide-parent {
+  /* height: 100vh; */
+  width: 100%;
+  height:81.3vh;
+  
+}
+.view-slide{
+  height: 78vh;
+  opacity: 0.5;
+  /* border: 12px solid red; */
+}
+
+.non-opaque-content {
+  position: absolute;
+  margin-left: 9rem;
+  margin-top: 3rem;
+  opacity: 0.7;
+  border-radius: 15px;
+  /* border: 12px solid blue; */
+  background-color: white;
+  width: 80%;
+  z-index: 40;
+  color: white;
+  height: 60vh;
+}
+h2 {
+  padding: none;
+  color: blue;
+  text-align: center;
+  /* height: 0; */
+}
+
+/* code isnt dry due to the configuration of swipeable views no ability to abs position */
+/* .slide1 {
+  position: absolute;
+  top: 3rem;
+}
+.slide2 {
+  position: relative;
+  top: 3rem;
+  left: 8 %;
+}
+.slide3 {
+  position: absolute;
+  top: 3rem;
+  
+} */
+/* ////////////navigation \/ //////////////////// */
+
+span {
+  font-size: 65px;
+}
+
+.nav-parent {
+  height: 7rem;
+  width: 100%; 
+  background-color: #333333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.link {
+ align-self: center;
+ font-size: 54px;
+}
+.center-link {
+  font-size: 90px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
