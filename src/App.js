@@ -27,15 +27,7 @@ const styles = {
   slide: {
     color: '#fff',
   },
-  slide1: {
-    // background: '#FEA900',
-  },
-  slide2: {
-    // background: '#B3DC4A',
-  },
-  slide3: {
-    // background: '#6AC0FF',
-  },
+  
 };
 
 class MyComponent extends Component{
@@ -65,9 +57,11 @@ render(){
   <div>
      <div value={index} className="nav-parent" style={styles.tabs}>
     {/* for refactor put handleChange in Navbar.js */}
-          <div  onClick={(e) => this.handleChange(e, 0)} className="link ContactUs">about </div>
-          <div  onClick={(e) => this.handleChange(e, 1)} className=" link center-link"> govurn</div>
-          <div  onClick={(e) => this.handleChange(e, 2)}className=" link About">contact </div>
+          <div  onClick={(e) => this.handleChange(e, 0)} className="link ContactUs"> About </div>
+          <div  onClick={(e) => this.handleChange(e, 1)} className="link ContactUs">Services</div>
+          <div  onClick={(e) => this.handleChange(e, 2)} className=" link center-link"><img src={require('./images/govurnLogo.png')}/> </div>
+          <div  onClick={(e) => this.handleChange(e, 3)}className=" link About">Team </div>
+          <div  onClick={(e) => this.handleChange(e, 4)}className=" link About">Contact </div>
         </div>
   {/* <Navbar/> */}
   <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
@@ -77,13 +71,23 @@ render(){
     </div>
   </div>
   <div className="slide-parent">
+    <div className="non-opaque-content slide1">  <h2>Services</h2></div>
+    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide1)}>
+    </div>
+  </div>
+  <div className="slide-parent">
     <div className="non-opaque-content slide2">  <h2>Main</h2></div>
     <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide2)}>
     </div>
   </div>
   <div className="slide-parent">
-    <div className="non-opaque-content slide3">  <h2>Contact</h2></div>
+    <div className="non-opaque-content slide3">  <h2>Team</h2></div>
     <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide3)}>
+    </div>
+  </div>
+  <div className="slide-parent">
+    <div className="non-opaque-content slide1">  <h2>Contact</h2></div>
+    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide1)}>
     </div>
   </div>
 
