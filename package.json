@@ -5,9 +5,11 @@
   "main": "server/server.js",
   "dependencies": {
     "@material-ui/core": "^1.4.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "nodemailer": "^4.6.8",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
@@ -21,8 +23,7 @@
     "now-start": "node server/server.js",
     "deploy": "now --public"
   },
-  "now":{
-    "alias":"govurn-site-v1"
-  },
-  "proxy": "http://localhost:3535"
+  "now": {
+    "alias": "govurn-site-v1"
+  }
 }

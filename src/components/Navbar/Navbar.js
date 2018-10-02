@@ -7,7 +7,7 @@ export default class Navbar extends Component {
             <div>
                 <div className="nav-parent">
                     <div className=" link ContactUs">Contact us</div>
-                    <div className=" link center-link">GOVURN</div>
+                    <div className=" link center-link">Ryan Stupey</div>
                     <div className=" link About"> About</div>
                 </div>
             </div>
