@@ -43,6 +43,10 @@ const styles = {
     color: '#fff',
     backgroundColor:'#FFFFFF'
   },
+  slide1: {
+    height: '4rem',
+    overflow: 'visible'
+  },
   slideContainerY: {
     height: 100,
   },
@@ -56,9 +60,12 @@ class MyComponent extends Component{
     super(props)
 
     this.state = {
-      index:2,
+      index:0,
+      indexProj:0,
     }
-  }
+    this.handleChangeIndexProjects = this.handleChangeIndexProjects.bind(this);
+    this.handleChangeProjects = this.handleChangeProjects.bind(this)
+   }
   handleChange = (event, value) => {
     this.setState({
       index: value,
@@ -70,28 +77,44 @@ class MyComponent extends Component{
       index,
     });
   };
+
+  handleChangeProjects = (event, value) => {
+    this.setState({
+      indexProj: value,
+    });
+  };
+
+  handleChangeIndexProjects = indexProj => {
+    this.setState({
+      indexProj,
+    });
+  };
   // creating div to put behind non-opaque-content give new div a background-color: none;
   // 
 render(){
-  const { index } = this.state;
+  const { index, indexProj} = this.state;
   return (
   <div>
      <div value={index} className="nav-parent" style={styles.tabs}>
     {/* for refactor put handleChange in Navbar.js */}
-          <div  onClick={(e) => this.handleChange(e, 0)} className="link ContactUs"> About </div>
-          <div  onClick={(e) => this.handleChange(e, 1)} className="link ContactUs">Projects</div>
-          <div  onClick={(e) => this.handleChange(e, 2)} className=" link center-link">RYAN STUPEY</div>
-          <div  onClick={(e) => this.handleChange(e, 3)}className=" link About">Skills </div>
-          <div  onClick={(e) => this.handleChange(e, 4)}className=" link About">Contact </div>
+        <div className="navDivLiLeft">
+            <div  onClick={(e) => this.handleChange(e, 0)} className="link ContactUs"> About </div>
+            <div  onClick={(e) => this.handleChange(e, 1)} className="link ContactUs">Projects</div>
+        </div>
+          <div className="center-link">RYAN STUPEY</div>
+        <div className="navDivLiRight">
+            <div  onClick={(e) => this.handleChange(e, 2)}className=" link About">Skills </div>
+            <div  onClick={(e) => this.handleChange(e, 3)}className=" link About">Contact </div>
+        </div>
         </div>
   {/* <Navbar/> */}
-  <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
+  <SwipeableViews index={index} indexProj={indexProj} onChangeIndex={this.handleChangeIndex}>
   <div className="slide-parent">
     <div className="non-opaque-content slide1">  
     <div className="h2ParentDivs"><h2>About me</h2></div>
       <div className="aboutMeParent">
       <div className="aboutMeImageDiv">
-        <img className="aboutMeImage" src={require('./images/ryanjr.jpg')}/>
+        <img className="aboutMeImage" src={require('./images/IMG_1272.jpg')}/>
       </div>
         <div className="aboutMeDescDiv">
             <p >Hi there, Welcome to my portfolio</p>
@@ -99,13 +122,18 @@ render(){
         </div>
         </div>
     </div>
-    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide1)}>
+    <div className="view-slide" style={Object.assign({}, styles.slide)}>
     </div>
   </div>
   <div className="slide-parent">
     <div className="non-opaque-content slide1"> <div className="h2ParentDivs"> <h2>Projects</h2></div>
-        
-    <SwipeableViews resistance>
+        <div className="projNav" value={indexProj}>
+          <div  onClick={(e) => this.handleChangeProjects(e, 0)} className="link ContactUs">MiddleWhere </div>
+          <div  onClick={(e) => this.handleChangeProjects(e, 1)} className="link ContactUs">Under-Grace</div>
+          <div  onClick={(e) => this.handleChangeProjects(e, 2)} className=" link ContactUs">WinterWear</div>
+        </div>
+    <SwipeableViews index={indexProj} resistance onChangeIndex={this.handleChangeIndexProjects}>
+    {/* take out of app.js and make into Projects component, too large and messy for continued work */}
             <div style={Object.assign({}, styles.nestedSlide)}>
               <div className="projectImagesDiv">
                   <img className="projectImages" src={require('./images/middlewhere.PNG')}/>
@@ -129,13 +157,8 @@ render(){
             </div>
       </SwipeableViews>
     </div>
-    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide1)}>
-    </div>
-  </div>
-  <div className="slide-parent">
-    <div className="non-opaque-content slide2"><div className="h2ParentDivs">  <h2>Main</h2> </div></div>
-    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide2)}>
-    </div>
+    {/* <div className="view-slide" style={Object.assign({}, styles.slide1)}>
+    </div> */}
   </div>
   <div className="slide-parent">
     <div className="non-opaque-content slide3"> <div className="h2ParentDivs"> <h2>Skills</h2> </div>
@@ -156,7 +179,7 @@ render(){
     <div className="non-opaque-content slide1"> <div className="h2ParentDivs"> <h2>Contact</h2> </div>
         <Contact/>
     </div>
-    <div className="view-slide" style={Object.assign({}, styles.slide, styles.slide1)}>
+    <div className="view-slide" style={Object.assign({}, styles.slide)}>
     </div>
   </div>
 

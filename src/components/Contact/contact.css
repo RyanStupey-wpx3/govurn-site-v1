@@ -19,8 +19,9 @@
 }
 .sendButton {
     position: relative;
-    left: 68rem;
+    left: 20%;
     margin-right: 10.4rem;
-    width: 6rem;
+    width: 8rem;
+    padding: 8px;
     font-size: 18px;
 }

@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-app.use( express.static( `${__dirname}/../build` ) );
+// app.use( express.static( `${__dirname}/../build` ) );
 
 app.post('/api/send-email', function (req, res) {
   console.log('hit!')
@@ -49,9 +49,9 @@ app.post('/api/send-email', function (req, res) {
 
 const port = 3535;
 
-const path = require('path')
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// const path = require('path')
+// app.get('*', (req, res)=>{
+//   res.sendFile(path.join(__dirname, '../build/index.html'));
+// })
 
 app.listen(port, () => {console.log(`app is listening on port ${port}`)})
