@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodeMailer = require('nodemailer')
-// require('dotenv').config();
+require('dotenv').config();
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-// app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.post('/api/send-email', function (req, res) {
   console.log('hit!')
@@ -22,7 +22,7 @@ app.post('/api/send-email', function (req, res) {
       port: 3535,
       auth: {
           user: 'ryan.stupey@gmail.com',
-          pass: 'History2730'
+          pass: process.env.PASSWORD
       },
       tls: {
           rejectUnauthorized: false,
@@ -49,9 +49,9 @@ app.post('/api/send-email', function (req, res) {
 
 const port = 3535;
 
-// const path = require('path')
-// app.get('*', (req, res)=>{
-//   res.sendFile(path.join(__dirname, '../build/index.html'));
-// })
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(port, () => {console.log(`app is listening on port ${port}`)})
