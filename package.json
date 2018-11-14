@@ -12,7 +12,7 @@
     "nodemailer": "^4.6.8",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^2.1.1",
     "react-swipeable-views": "^0.12.14"
   },
   "scripts": {
@@ -25,5 +25,11 @@
   },
   "now": {
     "alias": "govurn-site-v1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
