@@ -343,7 +343,8 @@ span {
   .skillsPodParent{
     width: 75%;
     position: relative;
-    left: 10%;
+    top:10%;
+    left: 13%;
   }
   .node{
     padding-left: 1.5rem;
