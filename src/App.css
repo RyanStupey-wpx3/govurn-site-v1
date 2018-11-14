@@ -343,7 +343,8 @@ span {
   .skillsPodParent{
     width: 75%;
     position: relative;
-    left: 10%;
+    top:10%;
+    left: 13%;
   }
   .node{
     padding-left: 1.5rem;
@@ -365,17 +366,9 @@ span {
     height: 4rem;
   }
 }
- /* ///////////skills//////////// */ */
+ 
 
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 
-/* ///////////media queries//////////// */
 
-@media(
-  
-)
